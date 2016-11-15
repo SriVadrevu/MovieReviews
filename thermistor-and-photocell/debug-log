@@ -1,0 +1,42 @@
+Debug Log 
+
+Debugging for this lab was fairly minimal in terms of working the ATD module, most debugging 
+stemmed from providing proper readable output through the LCD module for the user.
+
+Problem:  After setting up the ATD resistors and the hardware, I tried testing to see whether 
+I am properly conducting the ADC conversions.  The thermistor worked out fairly well, but I could 
+not get the photocell to work.  Was consistently receiving a conversion value of 1023 when performing 
+continuous 10-bit conversions.
+Solution: I actually realized the hardware I had set up for the photocell was wrong.  The lab 
+prompt asked for a voltage divider circuit for the thermistor and series circuit for the photocell. 
+In fact, a voltage divider circuit is required for both of transducers (thermistor and photocell).  
+After doing that, I started receiving actual proper values in the range of ~200 to ~500.
+
+Problem: I had trouble initially reading the raw data from the thermistor and the photocell.  
+Initially I made if-else statements that would allow me to see where from 0 to 1023 is the range.  
+However, this proved to be a tedious process, and required a lot of trial-and-errors.
+Solution:  Since ADC conversion was stored in ATDR1 and ATDR0 as integers in the range from 0 to 
+1023.  I was able to perform integer math in C to send that exact value to the LCD module.  So if 
+I received an 823 for the thermistor, I would see the 823 in the LCD display.  I could not send the 
+information directly, since each number that appears in the LCD module has a specific command for 
+it.  I had a look up table and had to correlate the commands with the actual number.  Here’s an 
+example of how I did it.
+823 temp
+823/10  82
+82/10  8  hundreds place
+82%10  2  tens place
+temp  823%10  ones place
+By getting each individual place value I could access the look-up-table.  
+For example LUT[8] would give me the command for number 8 on the LCD display.
+
+Conclusion
+This lab was perhaps the most though-provoking and interesting lab I have ever done for any class. 
+Very interesting and very rewarding.  The lab was straightforward and the ATD module was quite simple 
+to use.  The lecture slides and book helped out greatly as they provided a lot of examples.  Before the 
+presentable I had made were the light wave and the stopwatch.  But now, we were able to essentially 
+communicate with nature (temperature and light) and display that information to something usable by the 
+user.  This lab truly made use of everything we have learned in this class so far.  Everything from 
+creating pseudocode, visualizing the bigger picture, knowing where to look for questions, using the SPI, 
+using the LCD module, everything.  Overall, a very rewarding lab that gave me a good insight into the 
+uses of embedded systems.
+
