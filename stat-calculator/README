@@ -1,0 +1,16 @@
+To create a statistical calculator by analyzing data of various individual entities (records)
+available in an array format from a file.
+
+Prompt: "The program should prompt for a filename from the user. 
+the file will contain the number of records on the first line, and the number 
+of values for each record on the second line. A matrix of values will follow 
+where each line has a unique alphanumeric identifier for the record, then the 
+values associated with that record. The program will then do some basic calculations 
+on the values across all the records. The premise is we are looking at census 
+data and each row is an individual record from the census and each value on line 
+pertains to the information in the census, things like number of residents, income, 
+etc. All of the values will be purely numerical."
+
+Utilized:
+File Handling
+Accessing arrays with solely pointer arithmetic and dereferencing of addresses.
