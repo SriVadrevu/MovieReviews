@@ -1,7 +1,13 @@
 
-Prompt:  "Building a movie review application, want to take user input for movies and then show the average review for the movie, if they exist. Since lots of movies, need a fast way to know whether we have a review and be able to display the review quickly"
+Prompt:  "Building a movie review application, want to take user input for movies and 
+then show the average review for the movie, if they exist. Since lots of movies, need 
+a fast way to know whether we have a review and be able to display the review quickly"
 
-This was done utilizing hash functions and hash tables.  With our hash table actually being an array of trees (linked lists with left and right nodes) to various information on these movies.  After data is read in from files, the user should be able to enter a movie name and program should output average rating based on all the movies and reviews taken in from the database (the other two files).
+This was done utilizing hash functions and hash tables.  With our hash table actually 
+being an array of trees (linked lists with left and right nodes) to various information 
+on these movies.  After data is read in from files, the user should be able to enter a 
+movie name and program should output average rating based on all the movies and reviews 
+taken in from the database (the other two files).
 
 Concepts Used:
 Linked Lists
